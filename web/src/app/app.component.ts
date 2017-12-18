@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from './user';
+import {Store} from '@ngrx/store';
+import {AddUserAction, AppState, getUsers} from './app.store';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-root',
@@ -7,14 +10,15 @@ import {User} from './user';
 })
 export class AppComponent implements OnInit {
 
-  users: User[] = [];
+  users: Observable<User[]>;
 
-  constructor() {}
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit() {
+    this.users = this.store.select(getUsers);
   }
 
   onSubmit(user: User) {
-    this.users.push(user);
+    this.store.dispatch(new AddUserAction(user));
   }
 }

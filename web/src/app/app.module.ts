@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {FormsModule} from '@angular/forms';
+import {StoreModule} from '@ngrx/store';
+import {userReducer} from './app.store';
 
 
 @NgModule({
@@ -12,7 +14,8 @@ import {FormsModule} from '@angular/forms';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    StoreModule.forRoot({users: userReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]
