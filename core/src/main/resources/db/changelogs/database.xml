@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="1" author="pkassem">
+        <!-- Sequences -->
+        <createSequence cycle="false"
+                        incrementBy="1"
+                        sequenceName="user_seq_id"
+                        startValue="1"/>
+
+        <!-- Table : USER -->
+        <createTable tableName="user">
+            <column name="id" type="number" valueComputed="user_seq_id.nextval" remarks="clé primaire">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar2" remarks="Nom">
+                <constraints nullable="false"/>
+            </column>
+            <column name="age" type="number" remarks="Age"/>
+        </createTable>
+
+    </changeSet>
+</databaseChangeLog>
