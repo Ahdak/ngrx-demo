@@ -1,0 +1,8 @@
+= Demo de la présentation NGRX
+
+* Compiler le projet maven parent ngrx-demo
+* Lancer le server web depuis le module rest via la classe NgrxDemoRest (projet springboot)
+* Installer les packages npm depuis le module web : npm install
+* Lancer l'application angular depuis le module web : ng serve
+* Depuis un navigateur web : http://localhost:4200/
+* Pour tester le debugger ngrx : installer sur votre navigateur l'extension **Redux DevTools**
